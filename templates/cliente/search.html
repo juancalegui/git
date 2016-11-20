@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Search{% if query %} Results{% endif %}</title>
+</head>
+<tbody>
+ 
+
+  <form class="navbar-form navbar-center">
+        <div class="form-group">
+          <input type="text"  class="form-control" name="q" value="{{ query|escape }}"  placeholder="Search">
+        </div>
+        <button type="submit" value="Search" class="btn btn-primary">Buscar</button>
+      </form>
+ <table class= "table table-bordered">
+  <thead>
+ 
+  {% if query %}
+    <h2>Resultado para "{{ query|escape }}":</h2>
+ 
+    {% if results %}
+      <ul>
+      {% for a in results %}
+      <tr>
+      <td>
+        <li>{{ a|escape }}</li>
+      {% endfor %}
+      </ul>
+      </td>
+      </tr>
+    {% else %}
+      <p>No se encontro cliente </p>
+    {% endif %}
+  {% endif %}
+
+  </thead>
+</tbody>
+</html>
+{% endblock %}
+
+{% block footer %}
+
+
+
+
+  {% endblock %}
+
+
+

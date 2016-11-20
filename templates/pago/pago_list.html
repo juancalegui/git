@@ -1,0 +1,86 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class= "table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			
+			<td>Nombre</td>
+			<td>Fecha Pago</td>
+			<td>Fecha Vencimiento</td>
+			<td>Cantidad</td>
+			<td>Acciones</td>
+
+		</tr>
+	<h1>{{date_now}}</h1>	
+
+	</thead>
+	<tbody>
+		{% if pago %}
+		{% for p in pago %}
+         <!-- esto es un comentario {% if  p.fecha_pago.month >= date_now.month %} -->
+		
+		<tr> 
+
+			{% if date_now > p.fecha_vencimiento %}
+			<td><b style="color:red;">{{p.id}}</b></td>
+			<td><b style="color:red;">{{p.cliente.nombre}}  {{p.cliente.apellido}}</b></td>
+			<td><b style="color:red;">{{p.fecha_pago}}</b></td>
+			<td><b style="color:red;">{{p.fecha_vencimiento}}</b></td>
+			<td><b style="color:red;">{{p.cantidad}}</b></td>
+			
+			{% else %}
+			<td>{{p.id}}</b></td>
+			<td>{{p.cliente.nombre}}  {{p.cliente.apellido}}</b></td>
+			<td>{{p.fecha_pago}}</td>
+			<td>{{p.fecha_vencimiento}}</td>
+			<td>{{p.cantidad}}</td>
+
+			{% endif %}
+
+			
+			
+			<td>
+				<a class="btn btn-primary" href="{% url 'pago:pago_editar' p.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'pago:pago_eliminar' p.id %}">Eliminar</a>
+			</td>
+
+		</tr>
+
+		<!--{% else %}
+		{% endif%}-->
+		
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de pagos</h1>
+		{% endif %}
+
+
+
+
+
+
+	</tbody>
+
+
+</table>
+
+<ul class= "pager">
+	<li>
+		{% if page_obj.has_previous %}
+
+		<a href="?page={{ page_obj.previous_page_number }} ">Previous</a>
+		{% endif %}
+		</li>
+	<li>
+		{% if page_obj.has_next %}
+
+		<a href="?page={{ page_obj.next_page_number }}">Next</a>
+		{% endif %}
+
+	</li>
+</ul>
+{% endblock %}

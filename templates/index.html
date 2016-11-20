@@ -1,0 +1,120 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+GYM
+{% endblock %}
+{% block navbar%}
+
+
+<h3 ALIGN=center >
+            Bienvenido al Sistema 
+             </h3>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<P ALIGN=center ></P>
+<P ALIGN=center ></P>
+<P ALIGN=center ></P>
+<P ALIGN=center ></P>
+<P ALIGN=center ></P>
+<form method="post">
+	{% csrf_token %}
+<P ALIGN=center ></P>
+<P ALIGN=center ></P><P ALIGN=center ></P>
+<P ALIGN=center ></P>
+	 <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+        		<label for="username">Nombre de usuario:</label>
+        		<input class="form-control" type="text" name="username">
+    	   </div>
+        </div>
+    </div>    
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+        		<label for="username">Contraseña:</label>
+        		<input class="form-control" type="password" name="password">
+    	   </div>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+                <a href="#">Olvidé mi contraseña</a>
+        		<input class="btn btn-primary" type="submit" value="Ingresar">
+    	   </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+
+
+
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3><span>Reset</span> Computer </h3>
+
+        <p class="footer-links">
+          <a href="#">Sistema de Pagos</a>
+          ·
+          <a href="#"> v16.09</a>
+          ·
+         
+        </p>
+
+        <p class="footer-company-name">Company Reset &copy; 2016</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span></span> Catamarca, Argentina</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>+3834591376</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">nadiresfirtst@gmail.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>Gym poli 250</span>
+          Sistema de registro y control de pagos mensuales.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+{% endblock %}
